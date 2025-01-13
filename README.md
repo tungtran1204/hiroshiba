@@ -1,2 +1,2 @@
-# hiroshiba
+# Hiroshiba
 SE Capstone Project
