@@ -1,23 +1,35 @@
-// import axios from "axios";
+import axios from "axios";
 
-// const API_BASE_URL = "http://localhost:8080/api/auth"; // URL của Spring Boot Backend
+const API_URL = "http://localhost:8080/api/unistock/au_01";
 
-// export const registerUser = async (userData) => {
-//   try {
-//     const response = await axios.post(`${API_BASE_URL}/register`, userData);
-//     return response.data;
-//   } catch (error) {
-//     console.error("Registration failed", error);
-//     throw error.response?.data || "Registration failed";
-//   }
-// };
+const login = async (email, password) => {
+  try {
+    const response = await axios.post(`${API_URL}/login`, { email, password });
+    return response.data;
+  } catch (err) {
+    console.error("Error during login:", err.response || err.message);
+    throw err;
+  }
+};
 
-// export const loginUser = async (credentials) => {
-//   try {
-//     const response = await axios.post(`${API_BASE_URL}/login`, credentials);
-//     return response.data; // JWT token
-//   } catch (error) {
-//     console.error("Login failed", error);
-//     throw error.response?.data || "Login failed";
-//   }
-// };
+const register = async (username, email, password, confirmPassword) => {
+  try {
+    const response = await axios.post(`${API_URL}/register`, {
+      username,
+      email,
+      password,
+      confirmPassword,
+    });
+    return response.data;
+  } catch (err) {
+    console.log("Error in register:", err);
+    if (err.response) {
+      throw new Error(err.response.data.message || "Registration failed.");
+    } else if (err.request) {
+      throw new Error("No response from the server.");
+    } else {
+      throw new Error("An error occurred. Please try again.");
+    }
+  }
+};
+export default { register, login };

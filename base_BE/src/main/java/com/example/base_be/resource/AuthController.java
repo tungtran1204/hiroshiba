@@ -5,7 +5,7 @@ import com.example.base_be.model.dto.LoginResponse;
 import com.example.base_be.model.dto.RegisterMemberDto;
 import com.example.base_be.model.entities.Member;
 import com.example.base_be.service.MemberService;
-import com.example.base_be.utils.JwtUtil;
+import com.example.base_be.security.JwtUtil;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.example.base_be.utils;
+package com.example.base_be.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

@@ -13,6 +13,8 @@ import EditProfileComponent from "./components/homepage/EditProfileComponent";
 import ViewContentComponent from "./components/homepage/ViewContentComponent";
 import AddContentComponent from "./components/homepage/AddContentComponent";
 import EditContentComponent from "./components/homepage/EditContentComponent";
+import LoginPage from "./components/pages/LoginPage";
+import RegisterPage from "./components/pages/RegisterPage";
 const Layout = ({ children }) => (
   <div className="container-fluid">
     <div className="row">
@@ -33,8 +35,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<LoginComponent />} />
-        <Route path="/register" element={<RegisterComponent />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route
           path="/profile"
           element={
